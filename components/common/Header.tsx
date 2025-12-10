@@ -98,9 +98,9 @@ const Header: React.FC = () => {
   const hamburgerPosition = "absolute top-6 right-4";
 
   return (
-    <header className="fixed top-0 z-50 w-full">
+    <header className="header fixed top-0 z-50 w-full bg-linear-to-b from-rose-800 via-rose-800 to-rose-900/20">
       {/* Navbar */}
-      <div className="backdrop-blur-sm">
+      <div className="">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8 font-sans relative">
           {/* Logo */}
           <div className="flex items-center mr-12">
@@ -182,7 +182,7 @@ const Header: React.FC = () => {
       {/* Mobile sidebar */}
       <div
         className={clsx(
-          "lg:hidden fixed top-0 right-0 h-full z-30 w-72 sm:max-w-sm overflow-hidden px-6 py-8 sidebar shadow-2xl transition-transform duration-500 ease-in-out rounded-l-4xl bg-linear-to-b from-red-900 via-rose-800 to-red-950",
+          "lg:hidden fixed top-0 right-0 h-full z-30 w-72 sm:max-w-sm overflow-hidden px-6 py-8 sidebar shadow-2xl transition-transform duration-500 ease-in-out rounded-l-4xl bg-linear-to-b from-rose-800/70 via-rose-800/70 to-rose-900/70 backdrop-blur-3xl",
           open ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -216,11 +216,6 @@ const Header: React.FC = () => {
               </button>
             ))}
           </div>
-        </div>
-
-        {/* Sidebar footer */}
-        <div className="absolute bottom-6 left-6 text-white/70 text-sm sm:text-base">
-          &copy; 2025 Sunny Delights
         </div>
       </div>
     </header>

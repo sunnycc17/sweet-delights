@@ -65,7 +65,7 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           {/* Section Heading */}
-          <h2 className="text-center text-3xl sm:text-4xl font-bold text-rose-500 mb-16">
+          <h2 className="text-center text-3xl sm:text-4xl font-bold text-rose-500 mb-20">
             Why People Love Us
           </h2>
 
@@ -73,7 +73,6 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {[
               {
-                title: "Premium Ingredients",
                 desc: "Crafted with real cocoa, fruit, and natural flavors.",
                 icon: (
                   <svg
@@ -92,7 +91,6 @@ export default function HomePage() {
                 ),
               },
               {
-                title: "Gift-Ready Packaging",
                 desc: "Beautifully packed—perfect for birthdays and surprises.",
                 icon: (
                   <svg
@@ -111,7 +109,6 @@ export default function HomePage() {
                 ),
               },
               {
-                title: "Fast Shipping",
                 desc: "Orders placed before noon dispatch the same day.",
                 icon: (
                   <svg
@@ -130,7 +127,6 @@ export default function HomePage() {
                 ),
               },
               {
-                title: "Loved by Thousands",
                 desc: "Rated 4.9 by customers just like you.",
                 icon: (
                   <svg
@@ -148,16 +144,15 @@ export default function HomePage() {
                   </svg>
                 ),
               },
-            ].map((feature) => (
+            ].map((feature, index) => (
               <div
-                key={feature.title}
-                className="rounded-2xl p-6 flex flex-col items-center text-center"
+                key={index}
+                className="flex flex-col items-center text-center"
               >
                 {feature.icon}
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-rose-500 font-medium text-balance ">
+                {/* Placeholder space where the title was */}
+                <div className="h-4"></div>
+                <p className="text-rose-500 font-medium text-balance">
                   {feature.desc}
                 </p>
               </div>
@@ -166,9 +161,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-rose-50">
+      <section className="py-24 bg-rose-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-center text-2xl sm:text-3xl font-semibold text-rose-700">
+          <h2 className="text-center text-3xl sm:text-4xl font-bold text-rose-500 mb-20 ">
             A Taste of Our Favorites
           </h2>
 

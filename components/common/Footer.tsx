@@ -61,7 +61,7 @@ export default function Footer(): ReactElement {
   ];
 
   return (
-    <footer className="footer font-sans bg-linear-to-b from-red-900 via-rose-800 to-red-950 text-white">
+    <footer className="footer font-sans bg-linear-to-b from-rose-800 via-rose-800 to-rose-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Socials */}
         <div className="flex flex-col space-y-3">
