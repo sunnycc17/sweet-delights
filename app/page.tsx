@@ -3,18 +3,21 @@
 import { useEffect } from "react";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
     <>
       <Header />
-      <section
-        className="relative h-[80vh] md:h-screen bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1652284920238-1ecce9ffcdc9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
-        }}
-      >
+      <section className="relative h-[80vh] md:h-screen bg-cover bg-center">
+        <Image
+          src="/hero-1.webp"
+          alt="Handmade Sweets"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-rose-900/50 z-0"></div>
 
