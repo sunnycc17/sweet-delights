@@ -137,16 +137,17 @@ const Header: React.FC = () => {
               Sweet Delights
             </h1>
           </Link>
-
+          
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6 ml-12">
+          <nav className="hidden lg:flex items-center font-medium gap-4 ml-12">
             {navItems.map((item: NavItem) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-white font-medium px-3 py-1 rounded-lg"
+                className="group relative px-3 py-1 text-white font-medium"
               >
                 {item.label}
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-rose-400 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
               </Link>
             ))}
           </nav>

@@ -9,7 +9,7 @@ export default function HomePage() {
     <>
       <Header />
       <section
-        className="relative min-h-screen bg-cover bg-center"
+        className="relative h-[80vh] md:h-screen bg-cover bg-center"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1652284920238-1ecce9ffcdc9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
@@ -18,27 +18,27 @@ export default function HomePage() {
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-rose-900/50 z-0"></div>
 
-        <div className="relative z-20 max-w-7xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center h-full justify-center md:justify-between py-20">
+        <div className="relative z-20 max-w-7xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center h-full justify-center md:justify-between py-16 md:py-20">
           {/* Text content */}
-          <div className="text-center md:text-left md:max-w-lg py-24">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg leading-tight">
+          <div className="text-center md:text-left md:max-w-lg py-12 md:py-24">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-white drop-shadow-lg leading-tight">
               Handmade Sweets <br /> Crafted Fresh
             </h1>
-            <p className="mt-4 text-lg sm:text-xl text-gray-100 drop-shadow-sm">
+            <p className="mt-4 text-base sm:text-lg text-gray-100 drop-shadow-sm">
               Marshmallows, chocolates & candies made in small batches with real
               ingredients.
             </p>
 
-            <div className="mt-8 flex justify-center md:justify-start gap-4">
+            <div className="mt-6 flex justify-center md:justify-start gap-3 sm:gap-4">
               <a
                 href="/shop"
-                className="px-8 py-4 rounded-full font-semibold bg-linear-to-r from-rose-500 to-rose-700 text-white text-lg shadow-lg hover:scale-105 transition"
+                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold bg-linear-to-r from-rose-500 to-rose-700 text-white text-base sm:text-lg shadow-lg hover:scale-105 transition"
               >
                 Shop Now
               </a>
               <a
                 href="#features"
-                className="px-6 py-4 rounded-full font-semibold border border-white text-white text-lg hover:bg-white hover:text-rose-700 transition"
+                className="px-5 sm:px-6 py-3 sm:py-4 rounded-full font-semibold border border-white text-white text-base sm:text-lg hover:bg-white hover:text-rose-700 transition"
               >
                 Learn More
               </a>
@@ -46,17 +46,17 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Wavy SVG divider with faint white */}
-        <div className="absolute bottom-0 w-full overflow-hidden leading-0`">
+        {/* Wavy SVG divider */}
+        <div className="absolute bottom-0 w-full overflow-hidden leading-none">
           <svg
-            className="relative block w-full h-32"
+            className="relative block w-full h-20 md:h-32"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
           >
             <path
               d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200,120 L0,120 Z"
-              fill="rgb(255, 248, 250)" // faint white
+              fill="rgb(255, 248, 250)"
             />
           </svg>
         </div>
