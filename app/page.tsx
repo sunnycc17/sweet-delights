@@ -4,37 +4,41 @@ import { useEffect } from "react";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import Image from "next/image";
-import heroImg from "@/public/hero-1.webp";
+import heroImg from "@/public/hero-2.webp";
 
 export default function HomePage() {
   return (
     <>
       <Header />
-      <section className="relative h-[80vh] md:h-screen bg-cover bg-center">
-        import heroImg from "@/public/hero-1.webp";
-        <Image
-          src={heroImg}
-          alt="strawberry cake"
-          fill
-          priority
-          placeholder="blur"
-          sizes="100vw"
-          className="object-cover object-center"
-          style={{ willChange: "opacity" }}
-        />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-rose-900/50 z-0"></div>
-        <div className="relative z-20 max-w-7xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center h-full justify-center md:justify-between py-16 md:py-20">
-          {/* Text content */}
+      <section className="relative h-[80vh] md:h-screen">
+        {/* Image wrapper */}
+        <div className="absolute inset-0 z-10">
+          <Image
+            src={heroImg}
+            alt="strawberry cake"
+            fill
+            priority
+            placeholder="blur"
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover object-center"
+            style={{
+              willChange: "opacity",
+              filter: " hue-rotate(-20deg)", // pink effect
+            }}
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-30 max-w-7xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center h-full justify-center md:justify-between py-16 md:py-20">
           <div className="text-center md:text-left md:max-w-lg py-12 md:py-24">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold  drop-shadow-lg leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold drop-shadow-lg leading-tight">
               Handmade Sweets <br /> Crafted Fresh
             </h1>
             <p className="mt-4 text-base sm:text-lg text-gray-200 drop-shadow-sm">
               Marshmallows, chocolates & candies made in small batches with real
               ingredients.
             </p>
-
             <div className="mt-6 flex justify-center md:justify-start gap-3 sm:gap-4">
               <a
                 href="/shop"
@@ -51,8 +55,9 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
         {/* Wavy SVG divider */}
-        <div className="absolute bottom-0 w-full overflow-hidden leading-none">
+        <div className="absolute bottom-0 w-full overflow-hidden leading-none z-40">
           <svg
             className="relative block w-full h-20 md:h-32"
             xmlns="http://www.w3.org/2000/svg"
