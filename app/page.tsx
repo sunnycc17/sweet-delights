@@ -4,23 +4,26 @@ import { useEffect } from "react";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import Image from "next/image";
+import heroImg from "@/public/hero-1.webp";
 
 export default function HomePage() {
   return (
     <>
       <Header />
       <section className="relative h-[80vh] md:h-screen bg-cover bg-center">
+        import heroImg from "@/public/hero-1.webp";
         <Image
-          src="/hero-1.webp"
-          alt="Handmade Sweets"
+          src={heroImg}
+          alt="strawberry cake"
           fill
           priority
+          placeholder="blur"
+          sizes="100vw"
           className="object-cover object-center"
+          style={{ willChange: "opacity" }}
         />
-
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-rose-900/50 z-0"></div>
-
         <div className="relative z-20 max-w-7xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center h-full justify-center md:justify-between py-16 md:py-20">
           {/* Text content */}
           <div className="text-center md:text-left md:max-w-lg py-12 md:py-24">
@@ -48,7 +51,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
         {/* Wavy SVG divider */}
         <div className="absolute bottom-0 w-full overflow-hidden leading-none">
           <svg
