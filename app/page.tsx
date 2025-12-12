@@ -21,10 +21,10 @@ export default function HomePage() {
         <div className="relative z-20 max-w-7xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center h-full justify-center md:justify-between py-16 md:py-20">
           {/* Text content */}
           <div className="text-center md:text-left md:max-w-lg py-12 md:py-24">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-white drop-shadow-lg leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold  drop-shadow-lg leading-tight">
               Handmade Sweets <br /> Crafted Fresh
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-gray-100 drop-shadow-sm">
+            <p className="mt-4 text-base sm:text-lg text-gray-200 drop-shadow-sm">
               Marshmallows, chocolates & candies made in small batches with real
               ingredients.
             </p>
@@ -32,13 +32,13 @@ export default function HomePage() {
             <div className="mt-6 flex justify-center md:justify-start gap-3 sm:gap-4">
               <a
                 href="/shop"
-                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold bg-linear-to-r from-rose-500 to-rose-700 text-white text-base sm:text-lg shadow-lg hover:scale-105 transition"
+                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold bg-linear-to-r from-rose-500 to-rose-700 text-base sm:text-lg shadow-lg hover:scale-105 transition"
               >
                 Shop Now
               </a>
               <a
                 href="#features"
-                className="px-5 sm:px-6 py-3 sm:py-4 rounded-full font-semibold border border-white text-white text-base sm:text-lg hover:bg-white hover:text-rose-700 transition"
+                className="px-5 sm:px-6 py-3 sm:py-4 rounded-full font-semibold border border-white text-base sm:text-lg hover:bg-white hover:text-rose-700 transition"
               >
                 Learn More
               </a>
@@ -56,13 +56,13 @@ export default function HomePage() {
           >
             <path
               d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200,120 L0,120 Z"
-              fill="rgb(255, 248, 250)"
+              fill="rgb(236, 234, 234)"
             />
           </svg>
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4">
           {/* Section Heading */}
           <h2 className="text-center text-3xl sm:text-4xl font-bold text-rose-500 mb-20">
@@ -161,7 +161,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24 bg-rose-50">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-center text-3xl sm:text-4xl font-bold text-rose-500 mb-20 ">
             A Taste of Our Favorites
@@ -205,7 +205,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <a
               href="/shop"
-              className="inline-block px-10 py-3 rounded-full font-semibold bg-rose-600 text-white hover:scale-105 transition"
+              className="inline-block px-10 py-3 rounded-full font-semibold bg-rose-600 hover:scale-105 transition"
             >
               Explore Full Collection
             </a>
@@ -214,7 +214,7 @@ export default function HomePage() {
       </section>
 
       {/* BLOG */}
-      <section id="blog" className="flex flex-col items-center py-16 bg-white">
+      <section id="blog" className="flex flex-col items-center py-16">
         {/* Intro Block */}
         <div className="w-full max-w-4xl rounded-3xl p-8 sm:p-10 md:p-12 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-rose-600 mb-4 tracking-tight">
