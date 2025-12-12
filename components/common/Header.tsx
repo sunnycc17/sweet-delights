@@ -98,7 +98,7 @@ const Header: React.FC = () => {
   const last = useRef<number>(0);
   const cartCount: number = 0;
 
-  const hamburgerPosition: string = "absolute top-2 right-4";
+  const hamburgerPosition: string = "absolute top-3 right-2";
 
   // Hide header on scroll (desktop)
   useEffect(() => {
@@ -130,14 +130,14 @@ const Header: React.FC = () => {
           hidden ? "-translate-y-full" : "translate-y-0"
         )}
       >
-        <div className="mx-auto max-w-7xl flex items-center justify-between p-3 lg:px-8 font-sans relative">
+        <div className="mx-auto max-w-7xl flex items-center justify-between p-2 lg:px-8 font-sans relative">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <h1 className="font-semibold italic tracking-wide text-xl sm:text-2xl text-white">
+            <h1 className="font-semibold px-2 italic tracking-wide text-xl sm:text-2xl text-white">
               Sweet Delights
             </h1>
           </Link>
-          
+
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center font-medium gap-4 ml-12">
             {navItems.map((item: NavItem) => (
@@ -199,7 +199,7 @@ const Header: React.FC = () => {
       {/* Mobile overlay */}
       <div
         className={clsx(
-          "fixed inset-0 bg-black/40 z-20 transition-opacity duration-500 lg:hidden",
+          "fixed inset-0 bg-black/40 z-60 transition-opacity duration-500 lg:hidden",
           open
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -210,7 +210,7 @@ const Header: React.FC = () => {
       {/* Mobile sidebar */}
       <aside
         className={clsx(
-          "lg:hidden fixed top-0 right-0 h-full z-30 w-72 sm:max-w-sm overflow-hidden px-6 py-8 shadow-2xl transition-transform duration-500 ease-in-out rounded-l-4xl bg-linear-to-b from-rose-800 via-rose-800 to-rose-900/80 backdrop-blur-3xl",
+          "lg:hidden fixed top-0 right-0 h-full z-90 w-72 sm:max-w-sm overflow-hidden px-6 py-8 shadow-2xl transition-transform duration-500 ease-in-out rounded-l-4xl bg-linear-to-b from-rose-800 via-rose-800 to-rose-900/80 backdrop-blur-3xl",
           open ? "translate-x-0" : "translate-x-full"
         )}
       >
