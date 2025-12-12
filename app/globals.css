@@ -9,10 +9,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.header {
-  background-color: var(--base);
-}
-
 .swiper-pagination-bullet {
   background-color: rgb(48, 41, 41) !important; /* Active dot color */
   opacity: 1;

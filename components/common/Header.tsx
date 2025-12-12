@@ -1,17 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import { Sling as Hamburger } from "hamburger-react";
 
-// Navigation items with hrefs and optional icons for mobile sidebar
+// Type definition for nav items
 interface NavItem {
   label: string;
   href: string;
-  icon?: React.ReactNode;
+  icon: React.ReactNode;
 }
 
+// Navigation items with SVG icons
 const navItems: NavItem[] = [
   {
     label: "Home",
@@ -93,47 +94,73 @@ const navItems: NavItem[] = [
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const cartCount = 0;
+  const [hidden, setHidden] = useState<boolean>(false);
+  const last = useRef<number>(0);
+  const cartCount: number = 0;
 
-  const hamburgerPosition = "absolute top-6 right-4";
+  const hamburgerPosition: string = "absolute top-2 right-4";
+
+  // Hide header on scroll (desktop)
+  useEffect(() => {
+    const handleScroll = () => {
+      const y = window.scrollY;
+      if (y > last.current && y > 80) setHidden(true);
+      else setHidden(false);
+      last.current = y;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Disable scrolling when sidebar is open
+  useEffect(() => {
+    if (open) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [open]);
 
   return (
-    <header className="header fixed top-0 z-50 w-full bg-linear-to-b from-rose-800 via-rose-800 to-rose-900/20">
-      {/* Navbar */}
-      <div className="">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8 font-sans relative">
+    <>
+      {/* Header */}
+      <header
+        className={clsx(
+          "fixed top-0 left-0 w-full z-50 transition-transform duration-300 bg-linear-to-b from-rose-800 via-rose-800 to-rose-800",
+          hidden ? "-translate-y-full" : "translate-y-0"
+        )}
+      >
+        <div className="mx-auto max-w-7xl flex items-center justify-between p-3 lg:px-8 font-sans relative">
           {/* Logo */}
-          <div className="flex items-center mr-12">
-            <Link href="/" className="flex items-center gap-3">
-              <h1 className="font-semibold italic tracking-wide text-xl sm:text-2xl text-white">
-                Sweet Delights
-              </h1>
-            </Link>
-          </div>
+          <Link href="/" className="flex items-center gap-3">
+            <h1 className="font-semibold italic tracking-wide text-xl sm:text-2xl text-white">
+              Sweet Delights
+            </h1>
+          </Link>
 
-          {/* Desktop nav links */}
-          <div className="hidden lg:flex items-center gap-6 ml-16">
-            {navItems.map((item) => (
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-6 ml-12">
+            {navItems.map((item: NavItem) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-white font-medium px-3 py-1 rounded-lg hover:bg-white/10 transition-colors duration-300"
+                className="text-white font-medium px-3 py-1 rounded-lg"
               >
                 {item.label}
               </Link>
             ))}
-          </div>
+          </nav>
 
-          {/* Right side: search + cart + hamburger */}
+          {/* Search + Cart + Hamburger */}
           <div className="flex items-center gap-6 ml-auto">
             {/* Search */}
             <div className="hidden sm:flex relative">
               <input
                 type="text"
                 placeholder="Search candies..."
-                className="w-96 pl-12 pr-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white placeholder-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-rose-400 transition-shadow duration-300 shadow-sm hover:shadow-md"
+                className="w-96 pl-12 pr-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white placeholder-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-rose-400 transition-shadow duration-300 shadow-sm"
               />
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white pointer-events-none">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white pointer-events-none">
                 <svg
                   className="h-5 w-5"
                   fill="none"
@@ -151,7 +178,7 @@ const Header: React.FC = () => {
             </div>
 
             {/* Cart */}
-            <Link href="/pages/checkout" className="relative text-white">
+            <Link href="/checkout" className="relative text-white">
               <i className="ri-shopping-basket-2-fill text-2xl"></i>
               {cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center bg-rose-500 text-white">
@@ -165,10 +192,10 @@ const Header: React.FC = () => {
               <Hamburger toggled={open} toggle={setOpen} size={24} />
             </div>
           </div>
-        </nav>
-      </div>
+        </div>
+      </header>
 
-      {/* Overlay */}
+      {/* Mobile overlay */}
       <div
         className={clsx(
           "fixed inset-0 bg-black/40 z-20 transition-opacity duration-500 lg:hidden",
@@ -180,9 +207,9 @@ const Header: React.FC = () => {
       />
 
       {/* Mobile sidebar */}
-      <div
+      <aside
         className={clsx(
-          "lg:hidden fixed top-0 right-0 h-full z-30 w-72 sm:max-w-sm overflow-hidden px-6 py-8 sidebar shadow-2xl transition-transform duration-500 ease-in-out rounded-l-4xl bg-linear-to-b from-rose-800/70 via-rose-800/70 to-rose-900/70 backdrop-blur-3xl",
+          "lg:hidden fixed top-0 right-0 h-full z-30 w-72 sm:max-w-sm overflow-hidden px-6 py-8 shadow-2xl transition-transform duration-500 ease-in-out rounded-l-4xl bg-linear-to-b from-rose-800 via-rose-800 to-rose-900/80 backdrop-blur-3xl",
           open ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -198,27 +225,34 @@ const Header: React.FC = () => {
           />
         </div>
 
+        {/* Sidebar links */}
         <div className="flow-root mt-24">
-          <div className="text-left">
-            {navItems.map((item, index) => (
-              <button
+          <div className="text-left relative">
+            {navItems.map((item: NavItem, index: number) => (
+              <Link
                 key={item.href}
+                href={item.href}
                 onClick={() => setOpen(false)}
-                className={clsx(
-                  "flex items-center gap-4 w-full px-6 py-5 text-lg sm:text-xl font-semibold text-white text-left rounded-xl transform transition duration-500",
-                  open ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"
-                )}
-                style={{ transitionDelay: `${index * 120}ms` }}
               >
-                {item.icon && <span>{item.icon}</span>}
-                {item.label}
-                <div className="absolute left-6 bottom-0 h-px w-[calc(100%-2.5rem)] bg-white/20 rounded-full"></div>
-              </button>
+                <div
+                  className={clsx(
+                    "flex items-center gap-4 w-full px-6 py-5 text-lg font-semibold text-white rounded-xl transform transition duration-500 relative",
+                    open
+                      ? "opacity-100 translate-x-0"
+                      : "opacity-0 translate-x-6"
+                  )}
+                  style={{ transitionDelay: `${index * 120}ms` }}
+                >
+                  <span>{item.icon}</span>
+                  {item.label}
+                  <div className="absolute left-6 bottom-0 h-px w-[calc(100%-2.5rem)] bg-white/20 rounded-full"></div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
-      </div>
-    </header>
+      </aside>
+    </>
   );
 };
 
