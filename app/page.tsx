@@ -10,53 +10,92 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <section className="relative h-[80vh] md:h-screen">
-        {/* Image wrapper */}
-        <div className="absolute inset-0 z-10">
-          <Image
-            src={heroImg}
-            alt="strawberry cake"
-            fill
-            priority
-            placeholder="blur"
-            fetchPriority="high"
-            sizes="100vw"
-            className="object-cover object-center"
-            style={{
-              willChange: "opacity",
-              filter: " hue-rotate(-20deg)", // pink effect
-            }}
-          />
-        </div>
 
-        {/* Content */}
-        <div className="relative z-30 max-w-7xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center h-full justify-center md:justify-between py-16 md:py-20">
-          <div className="text-center md:text-left md:max-w-lg py-12 md:py-24">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold drop-shadow-lg leading-tight">
-              Handmade Sweets <br /> Crafted Fresh
-            </h1>
-            <p className="mt-4 text-base sm:text-lg text-gray-200 drop-shadow-sm">
-              Marshmallows, chocolates & candies made in small batches with real
-              ingredients.
-            </p>
-            <div className="mt-6 flex justify-center md:justify-start gap-3 sm:gap-4">
-              <a
-                href="/shop"
-                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold bg-linear-to-r from-rose-500 to-rose-700 text-base sm:text-lg shadow-lg hover:scale-105 transition"
-              >
-                Shop Now
-              </a>
-              <a
-                href="#features"
-                className="px-5 sm:px-6 py-3 sm:py-4 rounded-full font-semibold border border-white text-base sm:text-lg hover:bg-white hover:text-rose-700 transition"
-              >
-                Learn More
-              </a>
+      <section className="relative h-[80vh] md:h-screen">
+        <Image
+          src={heroImg}
+          alt="strawberry cake"
+          fill
+          priority
+          placeholder="blur"
+          sizes="100vw"
+          className="object-cover object-center"
+          style={{ filter: "hue-rotate(-20deg)" }}
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 z-30 flex items-center">
+          <div
+            className="
+        w-full
+        bg-gradient-to-l
+        from-rose-900/95
+        via-rose-900/90
+        to-rose-900/70
+        md:to-transparent
+      "
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-20 flex justify-end">
+              {/* Inner fade container */}
+              <div className="relative max-w-lg pr-6 md:pr-0">
+                {/* Edge fade */}
+                <div className="absolute inset-y-0 -right-6 w-6 bg-gradient-to-l from-transparent to-rose-900/90 md:hidden" />
+
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+                  Handmade Sweets
+                  <br />
+                  Crafted Fresh
+                </h1>
+
+                <p className="mt-4 text-sm sm:text-base text-gray-100">
+                  Marshmallows, chocolates & candies made in small batches with
+                  real ingredients.
+                </p>
+
+                {/* Buttons */}
+                <div className="mt-6 flex flex-row flex-wrap gap-3">
+                  <a
+                    href="/shop"
+                    className="
+                inline-flex
+                px-5 py-2
+                sm:px-7 sm:py-3
+                rounded-full
+                font-semibold
+                text-sm sm:text-base
+                bg-gradient-to-r from-rose-500 to-rose-700
+                shadow-lg
+                hover:scale-105
+                transition
+              "
+                  >
+                    Shop Now
+                  </a>
+
+                  <a
+                    href="#features"
+                    className="
+                inline-flex
+                px-4 py-2
+                sm:px-6 sm:py-3
+                rounded-full
+                font-semibold
+                text-sm sm:text-base
+                border border-white
+                text-white
+                hover:bg-white hover:text-rose-700
+                transition
+              "
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Wavy SVG divider */}
+        {/* Divider */}
         <div className="absolute bottom-0 w-full overflow-hidden leading-none z-40">
           <svg
             className="relative block w-full h-20 md:h-32"
