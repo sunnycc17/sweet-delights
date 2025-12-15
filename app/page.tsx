@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
-
+      {/* HERO SECTION */}
       <section className="relative h-[80vh] md:h-screen">
         <Image
           src={heroImg}
@@ -28,7 +28,7 @@ export default function HomePage() {
           <div
             className="
         w-full
-        bg-gradient-to-l
+        bg-linear-to-l
         from-rose-900/95
         via-rose-900/90
         to-rose-900/70
@@ -39,7 +39,7 @@ export default function HomePage() {
               {/* Inner fade container */}
               <div className="relative max-w-lg pr-6 md:pr-0">
                 {/* Edge fade */}
-                <div className="absolute inset-y-0 -right-6 w-6 bg-gradient-to-l from-transparent to-rose-900/90 md:hidden" />
+                <div className="absolute inset-y-0 -right-6 w-6 bg-linear-to-l from-transparent to-rose-900/90 md:hidden" />
 
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
                   Handmade Sweets
@@ -63,7 +63,7 @@ export default function HomePage() {
                 rounded-full
                 font-semibold
                 text-sm sm:text-base
-                bg-gradient-to-r from-rose-500 to-rose-700
+                bg-linear-to-r from-rose-500 to-rose-700
                 shadow-lg
                 hover:scale-105
                 transition
@@ -110,7 +110,7 @@ export default function HomePage() {
           </svg>
         </div>
       </section>
-
+      {/* FEATURES SECTION */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4">
           {/* Section Heading */}
@@ -119,13 +119,13 @@ export default function HomePage() {
           </h2>
 
           {/* Grid of features */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
             {[
               {
                 desc: "Crafted with real cocoa, fruit, and natural flavors.",
                 icon: (
                   <svg
-                    className="h-12 w-12 text-rose-400 mb-4"
+                    className="h-12 w-12 text-rose-400 mb-5"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth={2}
@@ -143,7 +143,7 @@ export default function HomePage() {
                 desc: "Beautifully packed—perfect for birthdays and surprises.",
                 icon: (
                   <svg
-                    className="h-12 w-12 text-rose-400 mb-4"
+                    className="h-12 w-12 text-rose-400 mb-5"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth={2}
@@ -161,7 +161,7 @@ export default function HomePage() {
                 desc: "Orders placed before noon dispatch the same day.",
                 icon: (
                   <svg
-                    className="h-12 w-12 text-rose-400 mb-4"
+                    className="h-12 w-12 text-rose-400 mb-5"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth={2}
@@ -179,7 +179,7 @@ export default function HomePage() {
                 desc: "Rated 4.9 by customers just like you.",
                 icon: (
                   <svg
-                    className="h-12 w-12 text-rose-400 mb-4"
+                    className="h-12 w-12 text-rose-400 mb-5"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth={2}
@@ -196,12 +196,10 @@ export default function HomePage() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center text-center"
+                className="flex flex-col items-center text-center px-4"
               >
                 {feature.icon}
-                {/* Placeholder space where the title was */}
-                <div className="h-4"></div>
-                <p className="text-rose-500 font-medium text-balance">
+                <p className="text-slate-700 font-medium leading-relaxed text-balance">
                   {feature.desc}
                 </p>
               </div>
@@ -210,9 +208,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* FAVORITES SECTION */}
+      {/* FAVORITES SECTION */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-center text-3xl sm:text-4xl font-bold text-rose-500 mb-20 ">
+          <h2 className="text-center text-3xl sm:text-4xl font-bold text-rose-500 mb-20">
             A Taste of Our Favorites
           </h2>
 
@@ -233,16 +233,20 @@ export default function HomePage() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
+                className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col"
               >
-                <img src={item.img} className="w-full h-56 object-cover" />
-                <div className="p-4 text-center">
-                  <h3 className="font-semibold text-lg text-rose-700">
+                <img
+                  src={item.img}
+                  className="w-full h-56 object-cover"
+                  alt={item.title}
+                />
+                <div className="p-5 flex flex-col flex-1 text-center">
+                  <h3 className="font-semibold text-lg text-rose-600 mb-2">
                     {item.title}
                   </h3>
                   <a
                     href="/shop"
-                    className="block mt-2 text-sm font-semibold text-rose-600 hover:underline"
+                    className="mt-auto text-sm font-semibold text-rose-700 hover:underline"
                   >
                     See More →
                   </a>
@@ -251,10 +255,10 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-14">
             <a
               href="/shop"
-              className="inline-block px-10 py-3 rounded-full font-semibold bg-rose-600 hover:scale-105 transition"
+              className="inline-block px-10 py-3 rounded-full font-semibold bg-rose-600 text-white hover:scale-105 transition-transform"
             >
               Explore Full Collection
             </a>

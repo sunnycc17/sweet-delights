@@ -126,7 +126,7 @@ const Header: React.FC = () => {
       {/* Header */}
       <header
         className={clsx(
-          "fixed top-0 left-0 w-full z-50 transition-transform duration-300 bg-linear-to-b from-rose-800 via-rose-800 to-rose-800",
+          "fixed top-0 left-0 w-full z-50 transition-transform duration-300 bg-linear-to-b from-rose-800 via-rose-800 to-rose-900",
           hidden ? "-translate-y-full" : "translate-y-0"
         )}
       >
